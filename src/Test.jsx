@@ -6,6 +6,7 @@
 import Image2 from './Image2'
 import Composant3 from './Composant3';
 
+
 function Test() {
 
 
@@ -13,6 +14,7 @@ function Test() {
     <>
       <Image2 />
       <Composant3 />
+      
       <h1>Ceci un titre</h1>
 
     </>

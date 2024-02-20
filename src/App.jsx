@@ -3,16 +3,23 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import logo from "/test.jpeg";
 import "./App.css";
-import Test from "./Test"
+import Test from "./Test";
+import ComposantClass from "./ComponentClass";
+import Button from "react-bootstrap/Button";
+
+// import ComposantFonc from "./CompoFonc";
+import RefExample from "./RefExample";
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
       <Test />
+
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src={logo} className="test"/>
+          <img src={logo} className="test" />
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
@@ -24,6 +31,13 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <Button
+          variant="primary"
+          onClick={() => setCount((count) => count + 1)}
+        >
+         
+          count is {count}
+        </Button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
@@ -31,6 +45,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <ComposantClass />
+      {/* <ComposantFonc /> */}
+      {/* <RefExample /> */}
     </>
   );
 }
