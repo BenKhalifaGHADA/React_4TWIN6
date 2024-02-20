@@ -10,6 +10,11 @@ import Button from "react-bootstrap/Button";
 // import ComposantFonc from "./CompoFonc";
 import RefExample from "./RefExample";
 import Events from "./Components/Events";
+import { Route, Routes } from "react-router-dom";
+import NotFound from "./Components/NotFound";
+import Home from "./Components/Home";
+import Contact from "./Components/Contact";
+import About from "./Components/About";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -50,7 +55,16 @@ function App() {
       {/* <ComposantFonc /> */}
       {/* <RefExample /> */}
 
-      <Events />
+     {/* Router à voir */} 
+      <Routes>
+        <Route path="/events" element={<Events />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/home/:username" element={<Home />} />
+        <Route path="/description" element={<Home />}>
+        <Route path="/about" element={<About />}  />
+        <Route path="/contact" element={<Contact />} />
+        </Route>
+      </Routes>
     </>
   );
 }
