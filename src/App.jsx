@@ -9,13 +9,14 @@ import Button from "react-bootstrap/Button";
 
 // import ComposantFonc from "./CompoFonc";
 import RefExample from "./RefExample";
+import Events from "./Components/Events";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <Test />
+      {/* <Test />
 
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -45,9 +46,11 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <ComposantClass />
+      <ComposantClass /> */}
       {/* <ComposantFonc /> */}
       {/* <RefExample /> */}
+
+      <Events />
     </>
   );
 }
