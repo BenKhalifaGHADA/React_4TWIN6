@@ -9,12 +9,17 @@ import Button from "react-bootstrap/Button";
 
 // import ComposantFonc from "./CompoFonc";
 import RefExample from "./RefExample";
-import Events from "./Components/Events";
+// import Events from "./Components/Events";
+import React from 'react';
+const Events= React.lazy(()=>import('./Components/Events'))
 import { Route, Routes } from "react-router-dom";
 import NotFound from "./Components/NotFound";
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
 import About from "./Components/About";
+import NavigationBar from "./Components/Navbar";
+import EventDetails from "./Components/EventDetails";
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -56,8 +61,13 @@ function App() {
       {/* <RefExample /> */}
 
      {/* Router à voir */} 
+     <React.Suspense fallback={<h1>Loading ....</h1>}>
+     <NavigationBar />
       <Routes>
-        <Route path="/events" element={<Events />} />
+        <Route path="/events" >
+        <Route index element={<Events />} />
+        <Route  path=":id" element={<EventDetails />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="/home/:username" element={<Home />} />
         <Route path="description" >
@@ -65,6 +75,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
+      </React.Suspense>
     </>
   );
 }

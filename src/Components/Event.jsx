@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Alert from 'react-bootstrap/Alert';
+import { NavLink } from 'react-router-dom';
+
 function Event(props) {
     const [event,setEvent]=useState(props.event);
     const [isShowBuyAlert,setIsShowBuyAlert]=useState(false);
@@ -31,7 +33,10 @@ function Event(props) {
      <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={`/images/${!!event.nbTickets?event.img:"sold_out.png"}`} />
       <Card.Body>
+        <NavLink to={`${event.name}`}>
         <Card.Title>{event.name}</Card.Title>
+        </NavLink>
+  
         <Card.Text>
           Description: {event.description}
         </Card.Text>
