@@ -3,26 +3,27 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import logo from "/test.jpeg";
 import "./App.css";
+// const EventDetails = React.lazy(() => import("./components/EventDetails"));
 import Test from "./Test";
 import ComposantClass from "./ComponentClass";
 import Button from "react-bootstrap/Button";
 
 // import ComposantFonc from "./CompoFonc";
 import RefExample from "./RefExample";
-// import Events from "./Components/Events";
-import React from 'react';
-const Events= React.lazy(()=>import('./Components/Events'))
-import { Route, Routes } from "react-router-dom";
+import Events from "./Components/Events";
 import NotFound from "./Components/NotFound";
+import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
-import Contact from "./Components/Contact";
 import About from "./Components/About";
+import Contact from "./Components/Contact";
 import NavigationBar from "./Components/Navbar";
 import EventDetails from "./Components/EventDetails";
+import EventAddForm from "./Components/AddEvent";
+import EventUpdateForm from "./Components/UpdateEvent";
 
 
 function App() {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
 
   return (
     <>
@@ -56,27 +57,33 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <ComposantClass /> */}
+      <ComposantClass />
       {/* <ComposantFonc /> */}
-      {/* <RefExample /> */}
+      {/* <RefExample />  */}
 
-     {/* Router à voir */} 
-     <React.Suspense fallback={<h1>Loading ....</h1>}>
+     
+     {/* <Events /> */}
+     {/* <React.Suspense fallback={<h1> Loading ...</h1>}> */}
      <NavigationBar />
-      <Routes>
-        <Route path="/events" >
-        <Route index element={<Events />} />
-        <Route  path=":id" element={<EventDetails />} />
+     <Routes>
+     <Route path="/events">
+          <Route index element={<Events />} />
+          <Route path=":id" element={<EventDetails />} />
+          <Route path="add" element={<EventAddForm />} />
+          <Route path="update/:id" element={<EventUpdateForm />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/home/:username" element={<Home />} />
-        <Route path="description" >
-        <Route path="about" element={<About />}  />
-        <Route path="contact" element={<Contact />} />
-        </Route>
+       <Route path="/home/:username" element={<Home />} />
+       <Route path="/about" element={<About />} />
+       <Route path="/contact" element={<Contact />} />
+       
+       <Route
+          path="*"
+          element={<NotFound />}
+        />
       </Routes>
-      </React.Suspense>
+      {/* </React.Suspense> */}
     </>
+
   );
 }
 

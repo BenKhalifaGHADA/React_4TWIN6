@@ -1,19 +1,31 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { NavLink } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
+import { NavLink } from 'react-router-dom';
 
 function NavigationBar() {
+   
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand>My events</Navbar.Brand>
+        <Navbar.Brand >Events</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link to={"/events"} as={NavLink} style={(isActive)=>({textDecoration:isActive && "underline"})} >
-              events
-            </Nav.Link>
+            <Nav.Link as={NavLink} to='/events' 
+           
+           style={(isActive)=>({textDecoration:isActive && "underline"})}
+            
+            >Events</Nav.Link>
+
+<Nav.Link as={NavLink} to='/events/add' 
+           
+           style={(isActive)=>({textDecoration:isActive && "underline"})}
+            
+            >Add New event</Nav.Link>
+          
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
